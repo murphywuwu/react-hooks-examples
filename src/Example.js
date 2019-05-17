@@ -5,20 +5,12 @@ function Example () {
   const inputRef = useRef();
   const inputGroupRef = useRef();
   
-
   useLayoutEffect(() => {
-    const { current } = inputRef;
+    console.log('useLayoutEffect trigger');
+  }, []);
 
-    const handleFocus = () => inputGroupRef.current.classList.add('active');
-    const handleBlur = () => inputGroupRef.current.classList.remove('active');
-
-    current.addEventListener('focus', handleFocus);
-    current.addEventListener('blur', handleBlur);
-
-    return () => {
-      current.removeEventLitener('focus', handleFocus);
-      current.removeEventLitener('blur', handleBlur);
-    }
+  useEffect(() => {
+    console.log('useEffect trigger');
   }, [])
 
   return (
