@@ -1,22 +1,22 @@
 import React, { useState, useEffect, useRef } from 'react'
+import Reddit from './Reddit'
 
 function Form() {
-  const inputRef = useRef();
-  const [value, setValue] = useState('');
+  const [inputValue, setValue] = useState('reactjs');
+  const [subreddit, setSubrredit] = useState(inputValue);
 
-  useEffect(() => {
-    // this runs after the first render
-    // so the ref is set by now
-    console.log('render')
-
-    // The effect 'depend on' inputRef
-    // the value return by useRef will be stable between renders - it won't change
-    // so evev though we're passing inputRef as the 2nd argument of useEffect, it will effectively only run once, on initial mount
-  }, [inputRef])
+  const handleSubmit = e => {
+    e.preventDefault();
+    setSubrredit(inputValue);
+  }
 
   return (
-    <input type="text" ref={inputRef} value={value} onChange={e => setValue(e.target.value)}/>
-  )
+  <>
+    <form onSubmit={handleSubmit}>
+      <input type="text" value={inputValue} onChange={e => setValue(e.target.value)}/>
+      <Reddit subreddit={subreddit}/>
+    </form>
+  </>)
 }
 
 export default Form;
