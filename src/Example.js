@@ -1,23 +1,33 @@
-import React, { useEffect, useLayoutEffect } from 'react'
+import React, { useEffect, useLayoutEffect, useRef } from 'react'
+import styles from './App.css'
 
 function Example () {
-
-
-  useEffect(() => {
-    console.log('use effect lifecycle: component did mount');
-  }, [])
+  const inputRef = useRef();
+  const inputGroupRef = useRef();
+  
 
   useLayoutEffect(() => {
-    console.log('use layout effect lifecycle: component did mount');
-  }, [])
+    const { current } = inputRef;
 
-  console.log('render lifecycle');
+    const handleFocus = () => inputGroupRef.current.classList.add('active');
+    const handleBlur = () => inputGroupRef.current.classList.remove('active');
+
+    current.addEventListener('focus', handleFocus);
+    current.addEventListener('blur', handleBlur);
+
+    return () => {
+      current.removeEventLitener('focus', handleFocus);
+      current.removeEventLitener('blur', handleBlur);
+    }
+  }, [])
 
   return (
     <>
-      <div>
-        <label>Your name</label>
-        <input type="text" autoComplete="off"/>
+      <div className="container">
+        <div ref={inputGroupRef} className="inputGroup">
+          <label className="label">Your name</label>
+          <input className="input" type="text" autoComplete="off" ref={inputRef}/>
+        </div>
       </div>
     </>
   )
