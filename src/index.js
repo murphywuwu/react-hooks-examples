@@ -8,7 +8,8 @@ import LifeCycle from './LifeCycle';
 import Reddit from './Reddit';
 import Example from './Example';
 // import App from './App';
-import App from './performance';
+// import App from './performance';
+import App from './forwardref-simple-example';
 import * as serviceWorker from "./serviceWorker";
 
 // https://daveceddia.com/useeffect-hook-examples/
