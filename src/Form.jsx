@@ -10,18 +10,23 @@ const useInputValue = initialValue => {
   };
 };
 
-export default ({ onSubmit }) => {
+/* 
+ * memo vs useMemo
+ * https://github.com/facebook/react/issues/14616
+ */
+export default React.memo(({ dispatch }) => {
   const { resetValue, ...text } = useInputValue("");
+  console.log('Form is rendered');
 
   return (
     <form
       onSubmit={e => {
         e.preventDefault();
-        onSubmit(text.value);
+        dispatch({text: text.value, type: 'ADD_TODO'});
         resetValue();
       }}
     >
       <input {...text} />
     </form>
   );
-};
+});
