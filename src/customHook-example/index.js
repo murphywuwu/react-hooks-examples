@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useDebugValue } from 'react';
 
 function useOffline () {
   const [isOffline, setIsOffline] = useState(false);
@@ -10,6 +10,8 @@ function useOffline () {
   function onOnline() {
     setIsOffline(false);
   }
+
+  useDebugValue(isOffline ? 'offline' : 'online');
 
   useEffect(() => {
     // 系统状态变化与数据源数据相关联导致的副作用
