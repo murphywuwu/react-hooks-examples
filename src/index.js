@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 // import App from './useEffect-example';
-import App from './customHook-example';
+// import App from './customHook-example';
 // import App from './useDataApiHook-example';
 import Form from './Form';
 import LifeCycle from './LifeCycle';
 import Reddit from './Reddit';
 import Example from './Example';
-// import App from './App';
+import App from './App';
 // import App from './performance';
 // import App from './forwardref-simple-example';
 import * as serviceWorker from "./serviceWorker";

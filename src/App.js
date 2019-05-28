@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useReducer } from "react";
 
 import Form from "./Form.jsx";
+import Form2 from './Form2.jsx';
 import "./App.css";
 
 const todosReducer = (todos, action) => {
@@ -37,6 +38,9 @@ export default () => {
   return (
     <div className="App">
       <Form
+        dispatch={dispatch}
+      />
+      <Form2
         dispatch={dispatch}
       />
       <div>
