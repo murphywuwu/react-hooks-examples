@@ -1,28 +1,26 @@
-import React, { useEffect, useLayoutEffect, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './App.css'
 
 function Example () {
-  const inputRef = useRef();
-  const inputGroupRef = useRef();
-  
-  useLayoutEffect(() => {
-    console.log('useLayoutEffect trigger');
-  }, []);
+  const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    console.log('useEffect trigger');
-  }, [])
+  function handleAlertClick() {
+    setTimeout(() => {
+      alert('You clicked on: ' + count);
+    }, 3000);
+  }
 
   return (
-    <>
-      <div className="container">
-        <div ref={inputGroupRef} className="inputGroup">
-          <label className="label">Your name</label>
-          <input className="input" type="text" autoComplete="off" ref={inputRef}/>
-        </div>
-      </div>
-    </>
-  )
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+      <button onClick={handleAlertClick}>
+        Show alert
+      </button>
+    </div>
+  );
 }
 
 export default Example;
