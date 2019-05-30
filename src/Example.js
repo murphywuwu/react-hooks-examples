@@ -1,31 +1,45 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, Component } from 'react'
 import styles from './App.css'
 
 // function Example () {
 //   const [count, setCount] = useState(0);
 
 //   useEffect(() => {
-//     const id = setInterval(() => {
-//       setCount(count + 1);
-//     }, 1000);
+//     setTimeout(() => {
+//       console.log(`You clicked ${count} times`);
+//     }, 3000)
+//   })
 
-//     return () => clearInterval(id);
-//   }, []);
-
-//   return <h1>{count}</h1>
+//   return (
+//     <div>
+//       <p>You clicked {count} times</p>
+//       <button onClick={() => setCount(count + 1)}>
+//         Click me
+//       </button>
+//     </div>
+//   );
 // }
-function Example () {
-  const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    const id = setInterval(() => {
-      setCount(c => c + 1);
-    }, 1000);
+class Example extends Component {
+  state = {
+    count: 0
+  }
+  componentDidUpdate() {
+    // const count = this.state.count;
 
-    return () => clearInterval(id);
-  }, []);
-
-  return <h1>{count}</h1>
+    setTimeout(() => {
+      // console.log(`You clicked ${count} times`);
+      console.log(`You clicked ${this.state.count} times`)
+    }, 3000)
+  }
+  render() {
+    return (
+      <div>
+        <p>You clicked {this.state.count} times</p>
+        <button onClick={() => this.setState({count: this.state.count + 1})}>Click me</button>
+      </div>      
+    )
+  }
 }
 
 export default Example;
