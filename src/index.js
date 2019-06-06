@@ -6,10 +6,11 @@ import ReactDOM from "react-dom";
 import Form from './Form';
 import LifeCycle from './LifeCycle';
 import Reddit from './Reddit';
-import App from './Example';
+// import App from './Example';
 // import App from './App';
 // import App from './performance';
 // import App from './forwardref-simple-example';
+import App from './context-example';
 import * as serviceWorker from "./serviceWorker";
 
 // https://daveceddia.com/useeffect-hook-examples/
