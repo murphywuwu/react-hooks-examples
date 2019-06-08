@@ -10,7 +10,8 @@ import Reddit from './Reddit';
 // import App from './App';
 // import App from './performance';
 // import App from './forwardref-simple-example';
-import App from './context-example';
+// import App from './context-example';
+import App from './forceUpdate/index';
 import * as serviceWorker from "./serviceWorker";
 
 // https://daveceddia.com/useeffect-hook-examples/
