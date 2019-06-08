@@ -23,4 +23,7 @@ function App () {
   )
 }
 
-export default App;
+// when parent rerender will trigger rerender
+export default App
+// when parent rerender will not trigger rerender
+// export default React.memo(App);
